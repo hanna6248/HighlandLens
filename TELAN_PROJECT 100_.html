@@ -1,0 +1,617 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Laser Marketing - HighlandLens</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: #2F3E46;
+            color: #F0F5DC;
+        }
+        .nav-container {
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: space-between; 
+    padding: 15px 30px;
+    background: rgba(53, 79, 82, 0.9);
+    backdrop-filter: blur(8px);
+
+}
+
+.logo-container {
+    display: flex;
+    align-items: center;
+}
+
+.logo {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+.web-name {
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: white;
+    font-family: 'Dancing Script', cursive;
+}
+
+nav ul {
+    display: flex;
+    justify-content: space-between;
+    gap: 15px;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: white;
+    padding: 12px 20px;
+    font-weight: bold;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+nav ul li a:hover {
+    background-color: #406660;
+}
+
+nav .dropdown {
+    position: relative;
+}
+
+nav .dropdown-menu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: rgba(53, 79, 82, 0.9);
+    padding: 10px;
+    border-radius: 10px;
+    width: max-content;
+}
+
+nav .dropdown:hover .dropdown-menu {
+    display: block;
+}
+
+nav .dropdown-menu li a {
+    display: block;
+    padding: 10px 20px;
+    text-decoration: none;
+    color: white;
+}
+
+nav .dropdown-menu li a:hover {
+    background-color: #406660;
+}
+
+.menu-toggle {
+    display: none;
+}
+/* Mobile view */
+@media (max-width: 768px) {
+    nav ul {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        position: absolute;
+        top: 60px;
+        left: 0;
+        background: rgba(53, 79, 82, 0.9);
+        padding: 10px;
+        border-radius: 10px;
+        z-index: 1000;
+    }
+
+    nav ul.show {
+        display: flex;
+    }
+
+    nav ul li {
+        width: 100%;
+    }
+
+    .menu-toggle {
+        display: block;
+        font-size: 30px;
+        background: none;
+        border: none;
+        color: white;
+        cursor: pointer;
+    }
+
+    .dropdown-menu {
+        position: static;
+        display: none;
+        background: rgba(53, 79, 82, 0.9);
+        padding: 10px;
+        width: 100%;
+    }
+
+    .dropdown.show .dropdown-menu {
+        display: block;
+    }
+}
+.nav-links {
+    display: flex;
+    gap: 20px;
+    transform: translateX(-50px);
+}
+
+
+        .image-container {
+            position: relative;
+            width: 100%;
+            height: 60vh;
+            overflow: hidden;
+        }
+        .image-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .image-title {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: white;
+            font-size: 10rem;
+            font-family: 'Dancing Script', cursive;
+            font-weight: bold;
+            text-shadow: 3px 3px 5px rgba(0, 0, 0, 0.8);
+            -webkit-text-stroke: 2px black;
+        }
+        .image-description {
+            background: #F0F5DC;
+            color: #2F3E46;
+            padding: 20px;
+            text-align: center;
+            border-radius: 8px;
+            margin: 20px;
+            font-size: large;
+        }
+     
+.destinations-container {
+    display: flex;
+            gap: 20px;
+            overflow-x: auto;
+            padding: 40px;
+            background: #2F3E46;
+            white-space: nowrap;
+            
+}
+.destination {
+    flex: 0 0 auto;
+            width: 250px;
+            min-height: 400px;
+            background: #F0F5DC;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.15);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+.destinations-container::-webkit-scrollbar {
+    height: 8px;
+}
+.destination-content {
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+.destinations-container::-webkit-scrollbar-thumb {
+    background: #52796F;
+    border-radius: 10px;
+}
+        .destination a {
+            text-decoration: none;
+            color: #2F3E46;
+            font-weight: bold;
+        }
+        .destination p {
+            color: #2F3E46;
+        }
+        .destination img {
+    width: 100%;
+    height: 180px; 
+    object-fit: cover; 
+    border-radius: 5px;
+}
+.start-button-container {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    margin-top: auto;
+}
+        .start-button {
+            display: block;
+    padding: 10px 20px;
+    background: #52796F;
+    color: white !important;
+    text-align: center;
+    font-weight: bold;
+    text-decoration: none;
+    border-radius: 8px;
+    transition: 0.3s ease-in-out;
+        }
+        .start-button:hover {
+            background: #354F52;
+        }
+        footer {
+            background: #354F52;
+            color: #FFFFFF;
+            text-align: center;
+            padding: 20px 0;
+            margin-top: 30px;
+        }
+        ::-webkit-scrollbar {
+            height: 8px;
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #2F3E46; 
+            border-radius: 10px;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #2F3E46; 
+            border-radius: 10px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #2F3E46; 
+        }
+        .arrow-button {
+            position: absolute;
+    top: 135%;
+    transform: translateY(-50%);
+    background: rgba(255, 255, 255, 0.7);
+    border: none;
+    cursor: pointer;
+    padding: 10px;
+    font-size: 50px;
+    border-radius: 50%;
+    transition: 0.3s;
+    z-index: 1000;
+
+    }
+    .arrow-button:hover {
+        background: rgba(255, 255, 255, 1);
+    
+    }
+   
+    .left-arrow {
+        left: 10px;
+    }
+    .right-arrow {
+        right: 10px;
+    }
+    .nav-container {
+    position: fixed; /* changed from absolute to fixed */
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 15px 30px;
+    background: rgba(53, 79, 82, 0.9); /* slightly darker for fixed header */
+    backdrop-filter: blur(8px); /* optional: makes background glassy */
+}
+   
+
+
+footer {
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+    left: 0;
+    background: #354F52;
+    color: #FFFFFF;
+    text-align: center;
+    padding: 15px 0;
+    z-index: 1000;
+}
+
+
+/* Add padding to body to avoid overlap */
+body {
+    padding-top: 90px; /* adjust based on nav height */
+    padding-bottom: 70px; /* adjust based on footer height */
+}
+
+
+    </style> 
+
+        
+        <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="nav-container">
+        <div class="logo-container">
+            <img src="logo.profile.jpg" alt="Logo" class="logo">
+            <span class="web-name">HighlandLens</span>
+        </div>
+        <button class="menu-toggle">&#9776;</button>    
+        
+        <nav>
+                        <ul class="nav-links">
+                <li><a href="TELAN_PROJECT 100_.html">Home</a></li>
+                <li class="dropdown">
+                    <a href="#">Destinations</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="laser.page.html">Laser</a></li>
+                        <li><a href="victoria.page.html">Victoria</a></li>
+                        <li><a href="ongkoleyt.page.html">Ongkoleyt</a></li>
+                        <li><a href="grumpy.pig.html">Grumpy Pig</a></li>
+                        <li><a href="bookends.page.html">Bookends</a></li>
+                        <li><a href="pasakalye.page.html">Pasakalye</a></li>
+                        <li><a href="church.page.html">Church</a></li>
+                        <li><a href="ililikha.page.html">Ililikha</a></li>
+                        <li><a href="cafe.gia.page.html">Cafe Gia</a></li>
+                        <li><a href="ohmygulay.page.html">Ohmygulay</a></li>
+                    </ul>
+                </li>
+                <li><a href="reflection.page.html">Reflection</a></li>
+            </ul>
+        </nav>
+        
+        <button id="backToTop" style="display:none;position:fixed;bottom:20px;right:70px;padding:10px 15px;font-size:18px;border:none;border-radius:50%;background:#52796F;color:white;cursor:pointer;">↑</button>
+        <script>document.addEventListener("DOMContentLoaded", function () {
+            // Handle the menu toggle for mobile
+            const menuToggle = document.querySelector(".menu-toggle");
+            const nav = document.querySelector("nav ul");
+        
+            if (menuToggle && nav) {
+                menuToggle.addEventListener("click", function () {
+                    nav.classList.toggle("show"); // Toggles the menu display
+                });
+        
+                // Close the menu if clicked outside of it
+                document.addEventListener("click", function (event) {
+                    if (!nav.contains(event.target) && !menuToggle.contains(event.target)) {
+                        nav.classList.remove("show");
+                    }
+                });
+            }
+
+        
+            // Handle dropdown visibility on mobile
+            const dropdown = document.querySelector(".dropdown");
+        
+            if (dropdown) {
+                dropdown.addEventListener("click", function () {
+                    dropdown.classList.toggle("show");
+                });
+            }
+        
+            // Scroll buttons for destinations (keep the previous implementation)
+            const container = document.getElementById("destinations");
+            const leftBtn = document.querySelector(".left-arrow");
+            const rightBtn = document.querySelector(".right-arrow");
+        
+            if (container && leftBtn && rightBtn) {
+                function scrollLeft() {
+                    container.scrollBy({ left: -300, behavior: "smooth" });
+                }
+        
+                function scrollRight() {
+                    container.scrollBy({ left: 300, behavior: "smooth" });
+                }
+        
+                leftBtn.addEventListener("click", scrollLeft);
+                rightBtn.addEventListener("click", scrollRight);
+        
+                function updateButtonVisibility() {
+                    leftBtn.style.display = container.scrollLeft > 0 ? "block" : "none";
+                    rightBtn.style.display =
+                        container.scrollLeft + container.clientWidth < container.scrollWidth
+                            ? "block"
+                            : "none";
+                }
+        
+                container.addEventListener("scroll", updateButtonVisibility);
+                updateButtonVisibility();
+            }
+        
+            // Back to top button functionality
+            window.addEventListener("scroll", function () {
+                const button = document.getElementById("backToTop");
+                if (window.scrollY > 300) {
+                    button.style.display = "block";
+                } else {
+                    button.style.display = "none";
+                }
+            });
+        
+            document.getElementById("backToTop").addEventListener("click", function () {
+                window.scrollTo({ top: 0, behavior: "smooth" });
+            });
+        });
+        
+    
+    </script>
+<script>
+window.addEventListener("scroll", function() {
+    const button = document.getElementById("backToTop");
+    if (window.scrollY > 300) {
+        button.style.display = "block";
+    } else {
+        button.style.display = "none";
+    }
+});
+
+document.getElementById("backToTop").addEventListener("click", function() {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+});
+</script>
+
+<div id="popup" style="display:none;position:fixed;top:50%;left:50%;transform:translate(-50%,-50%);background:white;padding:30px;border-radius:10px;z-index:9999;box-shadow:0 4px 8px rgba(0,0,0,0.2);">
+    <p id="popupText">Loading...</p>
+    <button onclick="closePopup()" style="margin-top:10px;padding:8px 12px;background:#52796F;color:white;border:none;border-radius:5px;">Close</button>
+</div>
+
+    </div>
+
+    <div class="image-container">
+        <img src="images.baguio.jpg" alt="Scenic view of Baguio City">
+        <div class="image-title">Baguio City</div>
+    </div>
+
+    <div class="image-description">
+        <p>Welcome to HighlandLens, a glimpse into my journey of studying and living in Baguio. Adjusting to the city's cold climate and independent life wasn't easy, but Baguio quickly became my home. Through its breathtaking landscapes, cozy spots, and vibrant culture, I found comfort and inspiration. Here, I’ll share the places that make Baguio special—not just for me, but for anyone who wants to experience its charm.</p>
+    </div>
+   
+   
+    <div class="destinations-wrapper">
+        <button class="arrow-button left-arrow" onclick="scrollLeft()">&#9664;</button>
+    
+    <div class="destinations-container" id="destinations">
+        <div class="destination">
+            <a href="#d1"><h2>Laser Marketing</h2></a>
+            <img src="cover.laser.jpg" alt="Laser Marketing">
+            <p>
+                Laser is a store in Baguio that offers <br>
+                a variety of school supplies at lower <br>
+                prices. From notebooks and pens to <br>
+                art materials, they provide options  <br>
+                for students looking for  <br>
+                budget-friendly essentials. <br>
+            </p>
+            <a href="laser.page.html" class="start-button">Start</a>
+        </div>
+        <div class="destination">
+            <a href="#d2"><h2>Victoria Supermart</h2></a>
+            <img src="cover.victoria.jpg" alt="Victoria Supermart">
+            <p>
+                Victoria Supermarket in Baguio offers  <br>
+                a wide range of groceries at lower <br>
+                prices compared to other stores. <br>
+                From fresh produce to household <br>
+                essentials, it’s a go-to place for  <br>
+                budget-conscious shoppers looking <br>
+                for everyday necessities. <br>
+            </p>
+            <a href="victoria.page.html" class="start-button">Start</a>
+        </div><div class="destination">
+            <a href="#d3"><h2>Ongkoleyt</h2></a>
+            <img src="cover.ongkoleyt.jpg" alt="Ongkoleyt Outlet">
+            <p>
+                Ongkoleyt offers chocolates, snacks, <br>
+                and food items at budget-friendly  <br>
+                prices—perfect for tourists looking <br>
+                for affordable pasalubong. <br>
+            </p>
+            <a href="ongkoleyt.page.html" class="start-button">Start</a>
+        </div><div class="destination">
+            <a href="#d1"><h2>Grumpy Pig</h2></a>
+            <img src="cover.grumpy.pig.jfif" alt="Laser Marketing">
+            <p>
+                Our go-to samgyupsal place in  <br>
+                Baguio, offering affordable and   <br>
+                delicious unlimited BBQ. Perfect  <br>
+                for students, it’s where we   <br>
+                celebrate special moments  <br>
+                without breaking the bank. 
+            </p>
+            <a href="grumpy.pig.html" class="start-button">Start</a>
+        </div><div class="destination">
+            <a href="#d1"><h2>Bookends</h2></a>
+            <img src="cover.bookends.jfif" alt="Laser Marketing">
+            <p>
+                A cozy secondhand bookstore in <br>
+                Baguio that offers a wide selection  <br>
+                of pre-loved books. It's an ideal  <br>
+                spot for book lovers like me  <br>
+                who enjoy affordable read. <br>
+            </p>
+            <a href="bookends.page.html" class="start-button">Start</a>
+        </div><div class="destination">
+            <a href="#d1"><h2>Pasakalye</h2></a>
+            <img src="cover.pasakalye.jfif" alt="Laser Marketing">
+            <p>
+                A vibrant market near Bookends that <br>
+                sells handmade accessories, nail art,  <br>
+                and local artworks. It’s a great place <br>
+                 to find unique, handcrafted items. <br>
+            </p>
+            <a href="pasakalye.page.html" class="start-button">Start</a>
+        </div><div class="destination">
+            <a href="#d1"><h2>Baguio Cathedral</h2></a>
+            <img src="cover.church.jfif" alt="Laser Marketing">
+            <p>
+                A beautiful church where I stay <br>
+                connected with my faith. Its  <br>
+                peaceful ambiance makes it a perfect <br>
+                place for prayer and reflection. <br>
+            </p>
+            <a href="church.page.html" class="start-button">Start</a>
+        </div><div class="destination">
+            <a href="#d1"><h2>Ili Likha</h2></a>
+            <img src="cover.ililikha.jfif" alt="Laser Marketing">
+            <p>
+                An artistic hub built with stunning  <br>
+                wooden designs, showcasing local <br>
+                creativity I love exploring its  <br>
+                intricate spaces and appreciating <br>
+                the unique art. <br>
+            </p>
+            <a href="ililikha.page.html" class="start-button">Start</a>
+        </div><div class="destination">
+            <a href="#d1"><h2>Cafe Gia</h2></a>
+            <img src="cover.cafe.gia.jfif" alt="Laser Marketing">
+            <p>
+                A cozy café near the University of  <br>
+                Baguio, serving affordable food and<br>
+                drinks. It’s my go-to study spot when  <br>
+                I need a quiet place with good WiFi. <br>
+            </p>
+            <a href="cafe.gia.page.html" class="start-button">Start</a>
+        </div><div class="destination">
+            <a href="#d1"><h2>Oh My Gulay</h2></a>
+            <img src="cover.ohmygulay.jfif" alt="Laser Marketing">
+            <p>
+                A vegetarian café with an artistic  <br>
+                wooden interior. It offers nutritious <br>
+                food and  drinks in a nature-inspired  <br>
+                setting, perfect for a relaxing meal. <br>
+            </p>
+            <a href="ohmygulay.page.html" class="start-button">Start</a>
+        </div><div class="destination">
+            <a href="#d1"><h2>Reflection</h2></a>
+            <img src="reflection1.jpg" alt="Reflection">
+            <p>
+                Baguio City is a place where dreams   <br>
+                and creativity meet. It’s the perfect <br>
+                home for students like me. <br>
+            </p>
+            <a href="reflection.page.html" class="start-button">Start</a>
+      
+        </div>
+        <button class="arrow-button right-arrow" onclick="scrollRight()">&#9654</button>
+    </div>
+
+    <footer>
+        <p>&copy; 2025 Baguio City Guide. All rights reserved.</p>
+    </footer>
+</body>
+</html>
